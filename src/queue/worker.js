@@ -1,3 +1,5 @@
+require('dotenv-safe').config()
+
 const request = require('request')
 
 const {BaseQueue} = require("./BaseQueue")

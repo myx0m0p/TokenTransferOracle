@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv-safe').config()
 
 const { BaseActionWatcher } = require("demux")
 const { NodeosActionReader } = require("demux-eos")
