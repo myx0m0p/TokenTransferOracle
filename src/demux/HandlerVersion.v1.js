@@ -56,6 +56,7 @@ function queueUpdate(payload, blockInfo, context) {
       blockNumber: blockInfo.blockNumber,
       blockHash: blockInfo.blockHash,
       blockTime: blockInfo.timestamp,
+      transactionId: payload.transactionId,
       transferFrom: transactionData.from,
       transferTo: transactionData.to,
       transferQuantity: transactionData.quantity,
