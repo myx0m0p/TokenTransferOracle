@@ -1,0 +1,38 @@
+{
+  "name": "token-transfer-oracle",
+  "version": "0.1.0",
+  "description": "Service for EOSIO to monitor eosio.token transfers to an account and send payload to the backend of DApp",
+  "main": "src/demux/worker.js",
+  "scripts": {
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "demux": "node src/demux/worker.js",
+    "queue": "node src/queue/worker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myx0m0p/TokenTransferOracle.git"
+  },
+  "keywords": [
+    "eosio",
+    "demux",
+    "nodejs",
+    "bull"
+  ],
+  "author": "Andrew U° <tmyx0m0p@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/myx0m0p/TokenTransferOracle/issues"
+  },
+  "homepage": "https://github.com/myx0m0p/TokenTransferOracle",
+  "engines": {
+    "node": "13.x"
+  },
+  "dependencies": {
+    "bull": "^3.12.1",
+    "demux-eos": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "pm2": "^4.2.3",
+    "request": "^2.88.0"
+  }
+}
