@@ -21,7 +21,7 @@ const actionWatcher = new BaseActionWatcher(
     process.env.API_POLL_INTERVAL,
 )
 
-const log = Logger.createLogger({ name: 'demux-worker' });
+const log = Logger.createLogger({ name: 'demux-worker' })
 
 log.info("Started, API_URL =", process.env.API_URL, "poll interval =", process.env.API_POLL_INTERVAL, "ms.")
 
