@@ -1,5 +1,7 @@
 require('dotenv-safe').config()
 
+const Logger = require('bunyan')
+
 const { BaseActionWatcher } = require("demux")
 const { NodeosActionReader } = require("demux-eos")
 const ObjectActionHandler = require("./ActionHandler")
@@ -19,6 +21,21 @@ const actionWatcher = new BaseActionWatcher(
     process.env.API_POLL_INTERVAL,
 )
 
-console.info("Demux worker started, API_URL =", process.env.API_URL, "poll interval =", process.env.API_POLL_INTERVAL, "ms.")
+const log = Logger.createLogger({ name: 'demux-worker' });
+
+log.info("Started, API_URL =", process.env.API_URL, "poll interval =", process.env.API_POLL_INTERVAL, "ms.")
+
 
 actionWatcher.watch()
+
+async function run() {
+  try {
+    await actionWatcher.watch()
+  } catch (e) {
+    log.error(e)
+  } finally {
+    process.exit()
+  }
+}
+
+run()
