@@ -26,8 +26,6 @@ const log = Logger.createLogger({ name: 'demux-worker' });
 log.info("Started, API_URL =", process.env.API_URL, "poll interval =", process.env.API_POLL_INTERVAL, "ms.")
 
 
-actionWatcher.watch()
-
 async function run() {
   try {
     await actionWatcher.watch()
